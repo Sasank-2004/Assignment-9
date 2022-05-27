@@ -1,0 +1,51 @@
+\documentclass[journal,twocolumn]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+
+\title{Assignment 9}
+\author{Gollapudi Sasank CS21BTECH11019}
+
+\begin{document}
+\maketitle
+\section*{Question : }
+Players $X$ and $Y$ roll dice alternately starting with $X$. The player that rolls $11$ wins. Show that the probability $p$ that $X$ wins equals $18/35$.
+\section*{Solution : }
+Let the Random Variables $A,B$ denote the following : \\
+$A=0$ : The person who starts the game  wins \\
+$A=1$ : The person who starts the game  loses \\
+$B=0$ : $11$ occurs at the first throw \\
+$B=1$ : $11$ does not occur at the first throw \\
+Given,
+\begin{align}
+\pr{A=0} &= p \\
+\Rightarrow \pr{A=1} &= 1-p \\
+\pr{B=0} &= \frac{2}{36} = \frac{1}{18} \\
+\Rightarrow \pr{B=1} &= \frac{34}{36} = \frac{17}{18}
+\end{align}
+The Events $B=0$ and $B=1$ form a partition to the Sample Space. \\
+\begin{align}
+\Rightarrow \pr{A=0} &= \pr{(A=0)((B=0)+(B=1))} \\
+\Rightarrow \pr{A=0} &= \pr{(A=0)(B=0)+(A=0)(B=1)}
+\end{align}
+The Events $(A=0)(B=0)$ and $(A=0)(B=1)$ are mutually exclusive 
+\begin{align}
+\Rightarrow \pr{A=0} &= \pr{(A=0)(B=0)} + \pr{(A=0)(B=1)} \\
+\Rightarrow \pr{A=0} &= \pr{A=0|B=0}\pr{B=0} + \pr{A=0|B=1}\pr{B=1}
+\end{align}
+$\pr{A=0|B=0} = 1$ because  if 11 occurs at first throw $X$ wins.\\
+Now the event $(A=0|B=1)$ is the case where $X$ wins when 11 does not occur at first throw. So in this case if we consider the game from the second throw then $Y$ throws first. But here we need the probability of the case where the person who starts the game loses i.e $\pr{A=1} = 1-p $.\\
+$\therefore \pr{A=0|B=1} = 1-p $
+\begin{align}
+\Rightarrow p &= 1 \times \frac{1}{18} + (1-p) \times \frac{17}{18}\\
+\Rightarrow p &= \frac{1 + 17 - 17p}{18} \\
+\Rightarrow 18p &= 18 - 17p \\
+\Rightarrow 35p &= 18 \\
+\Rightarrow p &= \frac{18}{35}
+\end{align}
+\end{document}
